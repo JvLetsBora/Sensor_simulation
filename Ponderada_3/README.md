@@ -1,5 +1,13 @@
-Este relatório visa responder algumas perguntas relacionadas a um cenário de vulnerabilidade (dentro do CIA Triad), identificando situações em que pode ser comprometido cada um dos três pilares: Confiabilidade, Integridade e Disponibilidade.
+| Aluno                    | Curso                  | Módulo | Grupo |
+|--------------------------|------------------------|--------|-------|
+| João Vitor Oliveira    | Engenharia da Computação | 9      | 5     |
 
+
+Este relatório visa responder algumas perguntas relacionadas a um cenário de vulnerabilidade (dentro do CIA Triad), identificando situações em que pode ser comprometido cada um dos três pilares: Confiabilidade, Integridade e Disponibilidade.
+  
+
+[!img](Sensor_simulation\Ponderada_3\static\confiabilidade.png)
+[!img](Sensor_simulation\Ponderada_3\static\disponibilidade.png)
 Tecnologia
 MQTT
 Mosquitto
