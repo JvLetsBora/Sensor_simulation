@@ -8,8 +8,8 @@
 Avaliar a tríade CIA em uma conexão com um broker MQTT.
   
 
-![img alt](Ponderada_3/static/confiabilidade.png)
-![img alt](Ponderada_3/static/disponibilidade.png)
+![img alt](static/confiabilidade.png)
+![img alt](static/disponibilidade.png)
 
 ## Setup do ambiente 
 
