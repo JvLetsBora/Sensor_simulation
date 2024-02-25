@@ -1,19 +1,21 @@
-# Simulador de ataques MQTT
-
 | Aluno                    | Curso                  | Módulo | Grupo |
 |--------------------------|------------------------|--------|-------|
 | João Vitor Oliveira    | Engenharia da Computação | 9      | 5     |
+
+
+# Simulador de ataques MQTT
+
 
 ## Descrição
 Avaliar a tríade CIA em uma conexão com um broker MQTT.
   
 
-![img alt](Sensor_simulation\Ponderada_3\static\confiabilidade.png)
-![img alt](Sensor_simulation\Ponderada_3\static\disponibilidade.png)
+![img alt](.\static\confiabilidade.png)
+![img alt](.\static\disponibilidade.png)
 
 ## Setup do ambiente 
 
-Para reproduzir os tests abaixo é necessário a instação das seguintes tecnologias: 
+Para reproduzir os tests a seguir é necessário a instação das seguintes tecnologias: 
 - [Python](https://www.python.org)
 - [Mosquitto](https://mosquitto.org)
 - [Docker](https://www.docker.com/get-started/)
