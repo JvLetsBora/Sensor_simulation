@@ -1,13 +1,8 @@
 import paho.mqtt.client as mqtt
 
 
-
-class Sensor():
-    def __init__(self, name, min, max) -> None:
-        self.nameType = name
-        self.delta = 0
-        self._min = min
-        self._max = max
+class Crash():
+    def __init__(self) -> None:
 
         # Configuração do cliente
         self.client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "python_publisher")
@@ -48,19 +43,15 @@ class Sensor():
     
 if __name__ == "__main__":
 
-    print("Thread 1 iniciada")
-    ab = Sensor(
-        min=0,
-        max=9,
-        name="oi"
-    )
+    print("Ataque iniciado")
+    new_crash = Crash()
 
     pub_broker = {
         "link":"10.150.3.222", #172.27.112.1",
         "port":1883
     }
 
-    ab.on(broker=pub_broker)
+    new_crash.on(broker=pub_broker)
 
 
 
