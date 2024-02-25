@@ -47,13 +47,13 @@ if __name__ == "__main__":
     new_crash = Crash()
 
     pub_broker = {
-        "link":"10.150.3.222", #172.27.112.1",
+        "link":"10.150.3.222", #172.27.112.1", <--- IPV4 port
         "port":1883
     }
 
     new_crash.on(broker=pub_broker)
 
-
+    print("Ataque finalizado")
 
 
 
