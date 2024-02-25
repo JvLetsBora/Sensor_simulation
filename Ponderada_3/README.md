@@ -7,16 +7,6 @@
 ## Descrição
 Avaliar a tríade CIA em uma conexão com um broker MQTT.
 
-## Estrutura de pastas
-
-|-  ataques
-|-    |-  confiabilidade.py
-|-    |-  disponibilidade.py
-|- 
-  
-![img alt](static/confiabilidade.png)
-![img alt](static/disponibilidade.png)
-
 ## Setup do ambiente 
 
 Para reproduzir os tests a seguir é necessário a instação das seguintes tecnologias: 
@@ -24,9 +14,9 @@ Para reproduzir os tests a seguir é necessário a instação das seguintes tecn
 - [Mosquitto](https://mosquitto.org)
 - [Docker](https://www.docker.com/get-started/)
 
-Perguntas
+## Perguntas - Roteiro
 1. O que acontece se você utilizar o mesmo ClientID em outra máquina ou sessão do browser? Algum pilar do CIA Triad é violado com isso?
-Quando você utiliza o mesmo ClienteID, o broker vai entender que o Cliente atual trocou de conexão. Logo, ele vai deixar de mandar as mensagens que estão sendo publicadas para o primeiro e vai mandar apenas para o último que se conectou.
+    R: Ele é desconectado da sessão anterior e conectado na nova sessão. O pilar de disponibilidade é violado, pois o cliente é desconectado sem aviso prévio.
 
 Impacto no CIA Triad:
 
@@ -71,3 +61,7 @@ Conclusões
 O MQTT é um protocolo de comunicação leve e eficiente, mas é importante estar ciente dos riscos de segurança associados ao seu uso. A implementação de medidas de segurança adequadas, como autenticação e autorização, é essencial para proteger a confidencialidade, integridade e disponibilidade das mensagens.
 
 Referenicia: https://informationsecurity.wustl.edu/items/confidentiality-integrity-and-availability-the-cia-triad/Introdução
+
+
+![img alt](static/confiabilidade.png)
+![img alt](static/disponibilidade.png)
