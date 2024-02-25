@@ -1,16 +1,23 @@
+# Simulador de ataques MQTT
+
 | Aluno                    | Curso                  | Módulo | Grupo |
 |--------------------------|------------------------|--------|-------|
 | João Vitor Oliveira    | Engenharia da Computação | 9      | 5     |
 
-
-Este relatório visa responder algumas perguntas relacionadas a um cenário de vulnerabilidade (dentro do CIA Triad), identificando situações em que pode ser comprometido cada um dos três pilares: Confiabilidade, Integridade e Disponibilidade.
+## Descrição
+Avaliar a tríade CIA em uma conexão com um broker MQTT.
   
 
-[!img](Sensor_simulation\Ponderada_3\static\confiabilidade.png)
-[!img](Sensor_simulation\Ponderada_3\static\disponibilidade.png)
-Tecnologia
-MQTT
-Mosquitto
+![img alt](Sensor_simulation\Ponderada_3\static\confiabilidade.png)
+![img alt](Sensor_simulation\Ponderada_3\static\disponibilidade.png)
+
+## Setup do ambiente 
+
+Para reproduzir os tests abaixo é necessário a instação das seguintes tecnologias: 
+- [Python](https://www.python.org)
+- [Mosquitto](https://mosquitto.org)
+- [Docker](https://www.docker.com/get-started/)
+
 Perguntas
 1. O que acontece se você utilizar o mesmo ClientID em outra máquina ou sessão do browser? Algum pilar do CIA Triad é violado com isso?
 Quando você utiliza o mesmo ClienteID, o broker vai entender que o Cliente atual trocou de conexão. Logo, ele vai deixar de mandar as mensagens que estão sendo publicadas para o primeiro e vai mandar apenas para o último que se conectou.
