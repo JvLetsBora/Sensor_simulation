@@ -6,8 +6,14 @@
 
 ## Descrição
 Avaliar a tríade CIA em uma conexão com um broker MQTT.
-  
 
+## Estrutura de pastas
+
+|-  ataques
+|-    |-  confiabilidade.py
+|-    |-  disponibilidade.py
+|- 
+  
 ![img alt](static/confiabilidade.png)
 ![img alt](static/disponibilidade.png)
 
