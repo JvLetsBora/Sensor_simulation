@@ -1,0 +1,1 @@
+Referenicia: https://informationsecurity.wustl.edu/items/confidentiality-integrity-and-availability-the-cia-triad/
