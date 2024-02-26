@@ -4,6 +4,8 @@
 |--------------------------|------------------------|--------|-------|
 | João Vitor Oliveira    | Engenharia da Computação | 9      | 5     |
 
+Atividade feita em conjunto com os membros do grupo: Caio e Kil
+
 ## Descrição
 Avaliar a tríade CIA em uma conexão com um broker MQTT.
 
@@ -16,52 +18,30 @@ Para reproduzir os tests a seguir é necessário a instação das seguintes tecn
 
 ## Perguntas - Roteiro
 1. O que acontece se você utilizar o mesmo ClientID em outra máquina ou sessão do browser? Algum pilar do CIA Triad é violado com isso?
-    R: Ele é desconectado da sessão anterior e conectado na nova sessão. O pilar de disponibilidade é violado, pois o cliente é desconectado sem aviso prévio.
+    R: Ele é desconectado da sessão anterior e conectado na nova sessão. O pilar de Disponibilidade é violado, pois o cliente é desconectado sem aviso prévio.
 
-Impacto no CIA Triad:
-
-Disponibilidade: Impacto potencial. As mensagens podem ser perdidas se o cliente original se desconectar antes de receber todas as mensagens.
 2. Com os parâmetros de resources, algum pilar do CIA Triad pode ser facilmente violado?
-Sim, os parâmetros de resources podem ser usados para violar os pilares do CIA Triad:
+    R: Sim, como nesse exemplo não há a criação de nivél de acesso aos tópicos é possivel ferir a Confiabilidade do sistema, já que todo usuário tem acesso a qualquer tópico do sistema. Outra forma de ferir a CIA Triad é pela Disponibilidade, pois o container pode ser facilmente derrubado por falta de recursos em uma eventual sobrecarga de mensagens.
 
-Confiabilidade: Um invasor pode usar recursos para negar o serviço a clientes legítimos, consumindo todos os recursos disponíveis do broker.
-Integridade: Um invasor pode usar recursos para modificar mensagens em trânsito, alterando o conteúdo das mensagens.
-Disponibilidade: Um invasor pode usar recursos para tornar o broker indisponível, consumindo todos os recursos do sistema.
 3. Já tentou fazer o Subscribe no tópico #? (sim, apenas a hashtag). O que acontece?
-Sim, é possível se inscrever no tópico "#". Isso faz com que o cliente receba todas as mensagens publicadas em qualquer tópico.
+    R: O '#' é um wildcard multi-level, um método coringa que permite inscrever-se em todos os tópicos disponíveis. Isso pode ser perigoso, pois pode violar a confidencialidade das mensagens.
 
-Impacto no CIA Triad:
-
-Confiabilidade: Se existir um tópico com conteúdos sensíveis, pode ter vazamento de informações.
-Disponibilidade: Impacto potencial. O cliente pode receber um grande volume de mensagens, o que pode afetar seu desempenho.
 4. Sem autenticação (repare que a variável allow_anonymous está como true), como a parte de confidencialidade pode ser violada?
-Sem autenticação, qualquer um pode se conectar ao broker e publicar mensagens. Isso significa que um invasor pode:
+    R: Como qualquer pessoa pode se conectar ao broker e ler mensagens de qualquer tópico, acaba por violaolar a Confidencialidade destas.
 
-Ler mensagens confidenciais publicadas no broker.
-Publicar mensagens falsas em nome de usuários legítimos.
-Impacto no CIA Triad:
+## Perguntas - Desenvolvimento
 
-Confiabilidade: A existência de mensagens falsas, perdendo a confiabilidade das informações.
-Integridade: Impacto alto. As mensagens podem ser modificadas ou falsificadas.
-5. Simulações de Violações
-Tente simular uma violação do pilar de Confidencialidade.
+### 1. Como você faria para violar a confidencialidade?
+R: Para violar a confidencialidade, eu poderia me inscrever em tópicos que transitam informações sensíveis, uma vez que o broker não possui uma lista de controle de acesso (ACL) para limitar o acesso a tópicos específicos. Uma vez que obtivesse quaisquer credenciais de acesso, poderia publicar e ler mensagens em tópicos que não deveria ter acesso.
 
-Conecte-se ao broker sem autenticação.
-Publique uma mensagem confidencial.
-Use um sniffer de rede para capturar a mensagem em trânsito.
-Tente simular uma violação do pilar de Integridade.
+![img alt](static/confiabilidade.png)
 
-Conecte-se ao broker sem autenticação.
-Publique uma mensagem falsa em nome de um usuário legítimo.
-Tente simular uma violação do pilar de Disponibilidade.
+### 2. Como você faria para garantir a integridade do broker MQTT?
+R: Para garantir a integridade dos dados além de credencias de acesso, cria uma lista de controle de acesso (ACL) para tópicos específicos, de forma a garantir que apenas usuários autorizados possam publicar mensagens em tópicos nestes evitando o compromentimento da integridade dos dados.
 
-Conecte-se ao broker com vários clientes e publique um grande volume de mensagens.
-Observe o desempenho do broker e dos clientes.
-Conclusões
-O MQTT é um protocolo de comunicação leve e eficiente, mas é importante estar ciente dos riscos de segurança associados ao seu uso. A implementação de medidas de segurança adequadas, como autenticação e autorização, é essencial para proteger a confidencialidade, integridade e disponibilidade das mensagens.
 
 Referenicia: https://informationsecurity.wustl.edu/items/confidentiality-integrity-and-availability-the-cia-triad/Introdução
 
 
-![img alt](static/confiabilidade.png)
+
 ![img alt](static/disponibilidade.png)
