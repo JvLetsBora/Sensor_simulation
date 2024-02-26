@@ -11,10 +11,14 @@ Avaliar a tríade CIA em uma conexão com um broker MQTT.
 
 ## Setup do ambiente 
 
-Para reproduzir os tests a seguir é necessário a instação das seguintes tecnologias: 
+Sigua as intruções abaixo para realizar simular os testes:
+1. Certifique se de ter instalado as seguintes tecnologias: 
 - [Python](https://www.python.org)
 - [Mosquitto](https://mosquitto.org)
 - [Docker](https://www.docker.com/get-started/)
+
+2. Execulte os paços do seguinte diretório: [Link para o diretório](https://github.com/rafaelmatsuyama/Inteli-T2-EC-M09)
+
 
 ## Perguntas - Roteiro
 1. O que acontece se você utilizar o mesmo ClientID em outra máquina ou sessão do browser? Algum pilar do CIA Triad é violado com isso?
@@ -37,7 +41,7 @@ R: Para violar a confidencialidade, eu poderia me inscrever em tópicos que tran
 ![img alt](static/confiabilidade.png)
 
 ### 2. Como você faria para garantir a integridade do broker MQTT?
-R: Para garantir a integridade dos dados além de credencias de acesso, cria uma lista de controle de acesso (ACL) para tópicos específicos, de forma a garantir que apenas usuários autorizados possam publicar mensagens em tópicos nestes evitando o compromentimento da integridade dos dados.
+R: Para garantir a integridade dos dados além de credencias de acesso, cria uma lista de controle de acesso (ACL) para tópicos específicos, de forma a garantir que apenas usuários autorizados possam publicar mensagens em tópicos nestes evitando o compromentimento da integridade dos dados. Além disso criaria uma lógica para mater de forma criptografada um historico de menssagens, juntamente com um protocolo de backups mensais das mesmas.
 
 
 Referenicia: https://informationsecurity.wustl.edu/items/confidentiality-integrity-and-availability-the-cia-triad/Introdução
