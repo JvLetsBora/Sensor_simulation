@@ -49,8 +49,20 @@ Sensor_simulation\Ponderada_3\ataques\confiabilidade.py
 
 ### 2. Como você faria para garantir a integridade do broker MQTT?
     R: Para garantir a integridade dos dados, além de credenciais de acesso, criaria uma lista de controle de acesso (ACL) para tópicos específicos, de forma a garantir que apenas usuários autorizados possam publicar mensagens em tópicos específicos, evitando o comprometimento da integridade dos dados. Além disso, criaria uma lógica para manter de forma criptografada um histórico de mensagens, juntamente com um protocolo de backups mensais das mesmas. 
+Código para simular ataque:
+```
+python ./ataques/disponibilidade.py
+```
+
+Sensor_simulation\Ponderada_3\ataques\disponibilidade.py
 
 
-Me basiei nessa referência [( CIA Triad Introduction )](https://informationsecurity.wustl.edu/items/confidentiality-integrity-and-availability-the-cia-triad/Introdução) para responder esse autoestudo.
+### 3. Tente simular uma violação do pilar de Disponibilidade.
+
+    R: Tendo acesso ao host, porta e credenciais de protocolo mqtt, é possível fazer um script que faça uma cadência de requisições superior a memória do servidor, assim fazendo com que novas mensagens não sejam registradas e posteriormente o server venha a cair.
 
 ![img alt](static/disponibilidade.png)
+
+Me basiei nessa referência [( CIA Triad Introduction )](https://informationsecurity.wustl.edu/items/confidentiality-integrity-and-availability-the-cia-triad/Introdução) para responder a esse autoestudo.
+
+
