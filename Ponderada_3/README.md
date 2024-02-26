@@ -37,12 +37,12 @@ Siga as instruções abaixo para realizar a simulação dos testes:
 
 ### 1. Como você faria para violar a confidencialidade?
     R: Para violar a confidencialidade, eu poderia me inscrever em tópicos que transitam informações sensíveis, uma vez que o broker não possui uma lista de controle de acesso (ACL) para limitar o acesso a tópicos específicos. Sendo assim tendo quaisquer credenciais de acesso, poderia publicar e ler mensagens em tópicos que não deveria ter acesso.
-    Código para simular ataque:
-    ```
-    python ./ataques/confiabilidade.py
-    ```
-    
-    Sensor_simulation\Ponderada_3\ataques\confiabilidade.py
+Código para simular ataque:
+```
+python ./ataques/confiabilidade.py
+```
+
+Sensor_simulation\Ponderada_3\ataques\confiabilidade.py
 
 
 ![img alt](static/confiabilidade.png)
