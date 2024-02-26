@@ -36,12 +36,19 @@ Siga as instruções abaixo para realizar a simulação dos testes:
 ## Perguntas - Desenvolvimento
 
 ### 1. Como você faria para violar a confidencialidade?
-    - R: Para violar a confidencialidade, eu poderia me inscrever em tópicos que transitam informações sensíveis, uma vez que o broker não possui uma lista de controle de acesso (ACL) para limitar o acesso a tópicos específicos. Uma vez que obtivesse quaisquer credenciais de acesso, poderia publicar e ler mensagens em tópicos que não deveria ter acesso.
+    R: Para violar a confidencialidade, eu poderia me inscrever em tópicos que transitam informações sensíveis, uma vez que o broker não possui uma lista de controle de acesso (ACL) para limitar o acesso a tópicos específicos. Uma vez que obtivesse quaisquer credenciais de acesso, poderia publicar e ler mensagens em tópicos que não deveria ter acesso.
+    Código para simular ataque:
+    ```
+    python ./ataques/confiabilidade.py
+    ```
+    
+    Sensor_simulation\Ponderada_3\ataques\confiabilidade.py
+
 
 ![img alt](static/confiabilidade.png)
 
 ### 2. Como você faria para garantir a integridade do broker MQTT?
-    - R: Para garantir a integridade dos dados, além de credenciais de acesso, criaria uma lista de controle de acesso (ACL) para tópicos específicos, de forma a garantir que apenas usuários autorizados possam publicar mensagens em tópicos específicos, evitando o comprometimento da integridade dos dados. Além disso, criaria uma lógica para manter de forma criptografada um histórico de mensagens, juntamente com um protocolo de backups mensais das mesmas.
+    R: Para garantir a integridade dos dados, além de credenciais de acesso, criaria uma lista de controle de acesso (ACL) para tópicos específicos, de forma a garantir que apenas usuários autorizados possam publicar mensagens em tópicos específicos, evitando o comprometimento da integridade dos dados. Além disso, criaria uma lógica para manter de forma criptografada um histórico de mensagens, juntamente com um protocolo de backups mensais das mesmas.
 
 Referência: [CIA Triad Introduction](https://informationsecurity.wustl.edu/items/confidentiality-integrity-and-availability-the-cia-triad/Introdução)
 
