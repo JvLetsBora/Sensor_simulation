@@ -51,6 +51,6 @@ Siga as instruções abaixo para realizar a simulação dos testes:
     R: Para garantir a integridade dos dados, além de credenciais de acesso, criaria uma lista de controle de acesso (ACL) para tópicos específicos, de forma a garantir que apenas usuários autorizados possam publicar mensagens em tópicos específicos, evitando o comprometimento da integridade dos dados. Além disso, criaria uma lógica para manter de forma criptografada um histórico de mensagens, juntamente com um protocolo de backups mensais das mesmas. 
 
 
-Me basiei nessa [referência ( CIA Triad Introduction )](https://informationsecurity.wustl.edu/items/confidentiality-integrity-and-availability-the-cia-triad/Introdução) para responder esse autoestudo.
+Me basiei nessa referência [( CIA Triad Introduction )](https://informationsecurity.wustl.edu/items/confidentiality-integrity-and-availability-the-cia-triad/Introdução) para responder esse autoestudo.
 
 ![img alt](static/disponibilidade.png)
