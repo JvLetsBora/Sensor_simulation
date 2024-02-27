@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+
 	"time"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
@@ -18,6 +19,7 @@ var connectLostHandler mqtt.ConnectionLostHandler = func(client mqtt.Client, err
 }
 
 func main() {
+
 	err := godotenv.Load(".env")
 	if err != nil {
 		fmt.Printf("Error loading .env file: %s", err)

@@ -1,10 +1,5 @@
 # Simulador de ataques MQTT
 
-| Aluno                | Curso                  | Módulo | Grupo |
-|----------------------|------------------------|--------|-------|
-| João Vitor Oliveira  | Engenharia da Computação | 9      | 5     |
-
-Atividade feita em conjunto com os membros do grupo: Caio e Kil
 
 ## Descrição
 Avaliar a tríade CIA em uma conexão com um broker MQTT.
