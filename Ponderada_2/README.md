@@ -1,4 +1,4 @@
-# Simulador de ataques MQTT
+# Simulação de dispositivos MQTT (Subscriber)
 
 
 ## Descrição
