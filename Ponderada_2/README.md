@@ -15,8 +15,20 @@ Siga as instruções abaixo para realizar a simulação dos testes:
 
 
 
-Código para simular ataque:
+## Testes 
+
+Siga as intruções a frente para executar os testes:
+
+*Testando o subscribe*
+
+1. Entre no diretório usando o comando:
 ```
-python ./ataques/confiabilidade.py
+cmd cd Sensor_simulation\Ponderada_2\subscribe
 ```
 
+2. Rode o comando de teste:
+```
+cmd go test
+```
+
+## Resulatdo esperado.

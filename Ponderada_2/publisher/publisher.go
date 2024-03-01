@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-
 	"time"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
