@@ -30,7 +30,7 @@ func mqttStart(teste Teste) {
 			*teste.textoTeste = string(msg.Payload())
 		}
 
-		fmt.Printf("Teste de menssageria: %s", msg.Payload())
+		fmt.Println("Teste de menssageria: ", string(msg.Payload()))
 	}
 	err := godotenv.Load(".env")
 	if err != nil {
@@ -61,15 +61,17 @@ func mqttStart(teste Teste) {
 	fmt.Println("Subscriber está rodando. Pressione CTRL+C para sair.")
 	select {
 	case <-time.After(time.Second * time.Duration(teste.testeDuracao)):
+		fmt.Println("Cliente desconectado.")
+		client.Disconnect(250)
 
 	}
-	client.Disconnect(250)
+
 }
 
-func main() {
-	var x string = "10"
-	ponteiro := &x
-	*ponteiro = "20"
-	teste := Teste{emTeste: true, testeDuracao: 5, textoTeste: ponteiro}
-	mqttStart(teste)
-}
+// func main() {
+// 	var x string = "10"
+// 	ponteiro := &x
+// 	*ponteiro = "20"
+// 	teste := Teste{emTeste: true, testeDuracao: 5, textoTeste: ponteiro}
+// 	mqttStart(teste)
+// }
