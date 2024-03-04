@@ -54,3 +54,4 @@ cmd go test
 ```
 
 Resulatdo esperado:
+![img alt](/Ponderada_2/static/subPrint.png)
