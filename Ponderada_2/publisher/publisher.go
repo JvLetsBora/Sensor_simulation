@@ -40,7 +40,7 @@ func main() {
 	}
 
 	for {
-		text := "Hello MQTT " + time.Now().Format(time.RFC3339)
+		text := "MSG Teste" //time.Now().Format(time.RFC3339)
 		token := client.Publish("test/topic", 1, false, text)
 		token.Wait()
 		fmt.Println("Publicado:", text)

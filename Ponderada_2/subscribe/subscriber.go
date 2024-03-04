@@ -3,13 +3,16 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	godotenv "github.com/joho/godotenv"
 )
 
-var messagePubHandler mqtt.MessageHandler = func(client mqtt.Client, msg mqtt.Message) {
-	fmt.Printf("Recebido: %s do tópico: %s com QoS: %d\n", msg.Payload(), msg.Topic(), msg.Qos())
+type Teste struct {
+	emTeste      bool
+	testeDuracao int
+	textoTeste   *string
 }
 
 var connectHandler mqtt.OnConnectHandler = func(client mqtt.Client) {
@@ -20,7 +23,15 @@ var connectLostHandler mqtt.ConnectionLostHandler = func(client mqtt.Client, err
 	fmt.Printf("Connection lost: %v", err)
 }
 
-func main() {
+func mqttStart(teste Teste) {
+
+	messagePubHandler := func(client mqtt.Client, msg mqtt.Message) {
+		if msg.Payload() != nil {
+			*teste.textoTeste = string(msg.Payload())
+		}
+
+		fmt.Printf("Teste de menssageria: %s", msg.Payload())
+	}
 	err := godotenv.Load(".env")
 	if err != nil {
 		fmt.Printf("Error loading .env file: %s", err)
@@ -48,6 +59,18 @@ func main() {
 	}
 
 	fmt.Println("Subscriber está rodando. Pressione CTRL+C para sair.")
-	select {} // Bloqueia indefinidamente
+	select {
+	case <-time.After(time.Second * time.Duration(teste.testeDuracao)):
+
+	}
 	client.Disconnect(250)
+}
+
+func main() {
+	var x string = "10"
+	//var ponteiro *string
+	ponteiro := &x
+	*ponteiro = "20"
+	teste := Teste{emTeste: true, testeDuracao: 5, textoTeste: ponteiro}
+	mqttStart(teste)
 }

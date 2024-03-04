@@ -4,14 +4,10 @@ import (
 	"testing"
 )
 
-// TestHelloName calls greetings.Hello with a name, checking
-// for a valid return value.
-func TestHelloName(t *testing.T) {
-
-}
-
-// TestHelloEmpty calls greetings.Hello with an empty string,
-// checking for an error.
-func TestHelloEmpty(t *testing.T) {
+func TestAbs(t *testing.T) {
+	// -1, 0, 1
+	if Abs(-1) < 0 {
+		t.Error("iijiji", -1)
+	}
 
 }
