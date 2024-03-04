@@ -19,7 +19,7 @@ Siga as instruções abaixo para realizar a simulação dos testes:
 
 Siga a sequência de comandos abaixo para realizar os testes:
 
-Observação: É necessário um arquivo .env nos diretórios ./publisher e ./subscribe com as seguintes variáveis de ambiente:
+Observação: É necessário um arquivo '.env' nos diretórios './publisher' e './subscribe' com as seguintes variáveis de ambiente:
 - BROKER_ADDR=<ENDEREÇO DO SEU BROKER>
 - HIVE_USER=<USUÁRIO DO SEU BROKER>
 - HIVE_PSWD=<SENHA DO SEU BROKER>
