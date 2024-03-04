@@ -52,5 +52,6 @@ cmd cd Sensor_simulation\Ponderada_2\subscribe
 ```
 cmd go test
 ```
-**Resulatdo esperado:**
+Resultado esperado:
+<br>
 ![img alt](/Ponderada_2/static/subPrint.png)
