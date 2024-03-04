@@ -68,7 +68,6 @@ func mqttStart(teste Teste) {
 
 func main() {
 	var x string = "10"
-	//var ponteiro *string
 	ponteiro := &x
 	*ponteiro = "20"
 	teste := Teste{emTeste: true, testeDuracao: 5, textoTeste: ponteiro}
