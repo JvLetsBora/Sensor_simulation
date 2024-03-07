@@ -28,7 +28,7 @@ Observação: É necessário um arquivo '.env' nos diretórios './publisher' e '
 
 1. Entre no diretório usando o comando:
 ```
-cmd cd Sensor_simulation\Ponderada_2\publisher
+   cmd cd Sensor_simulation\Ponderada_2\publisher
 ```
 
 2. Rode o comando de teste:

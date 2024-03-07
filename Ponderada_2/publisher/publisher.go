@@ -17,7 +17,11 @@ var connectLostHandler mqtt.ConnectionLostHandler = func(client mqtt.Client, err
 	fmt.Printf("Connection lost: %v", err)
 }
 
-func main() {
+type Teste struct {
+	testeDuracao int
+}
+
+func publiStart(teste Teste) {
 
 	err := godotenv.Load(".env")
 	if err != nil {
@@ -39,12 +43,15 @@ func main() {
 		panic(token.Error())
 	}
 
-	for {
-		text := "MSG Teste" //time.Now().Format(time.RFC3339)
-		token := client.Publish("test/topic", 1, false, text)
-		token.Wait()
-		fmt.Println("Publicado:", text)
-		time.Sleep(2 * time.Second)
+	text := "MSG Teste" //time.Now().Format(time.RFC3339)
+	token := client.Publish("test/topic", 1, false, text)
+	token.Wait()
+	fmt.Println("Publicado:", text)
+	time.Sleep(2 * time.Second)
+	select {
+	case <-time.After(time.Second * time.Duration(teste.testeDuracao)):
+		fmt.Println("Cliente desconectado.")
+		client.Disconnect(250)
+
 	}
-	client.Disconnect(250)
 }
