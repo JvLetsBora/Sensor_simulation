@@ -27,7 +27,7 @@ Observação: É necessário um arquivo '.env' nos diretórios './publisher' e '
 
 1. Entre no diretório usando o comando:
 ```
-   cmd cd Sensor_simulation\Ponderada_2\publisher
+   cmd cd \publisher
 ```
 
 2. Rode o comando de teste:
@@ -44,7 +44,7 @@ Para realizar este test, é necessário que haja um publicador enviando uma mens
 
 1. Entre no diretório usando o comando:
 ```
-cmd cd Sensor_simulation\Ponderada_2\subscribe
+cmd cd \subscribe
 ```
 
 2. Rode o comando de teste:
