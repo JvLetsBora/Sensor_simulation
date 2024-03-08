@@ -1,44 +1,57 @@
-# Sensor_simulation
-Entregas referentes ao 9 trimestre da minha formação em Engenharia da computação. 
+# Simulação de dispositivos MQTT (Prova)
+
+
 
 
 ## Setup do ambiente 
 
-Este tutorial pressupõe que você já tenha instalado as seguintes tecnologias: 
-- [Python](https://www.python.org)
-- [Mosquitto](https://mosquitto.org)
+Siga as instruções abaixo para realizar a simulação dos testes:
 
-Para o uso dessa funcionalidade siga as etapas abaixo:
+1. Certifique-se de ter instalado as seguintes tecnologias: 
+   - [go](https://rmnicola.github.io/m9-ec-encontros/go)
+   - [Mosquitto](https://mosquitto.org)
+   - [Docker](https://www.docker.com/get-started/)
 
-Entre no diretório 'Sensor_simulation\mqtt-paho':
-```
-cd mqtt-paho
-```
 
-É recomendavel o uso de virtual environment. Para isso, rode:
-```
-python -m venv venv
-```
 
-Para ativar o venv em MAC e UBUNTU, use:
-```
-source venv/bin/activate
-```
+## Testes 
 
-Para ativar o venv no WINDOWS, use:
-```
-venv\Scripts\activate
-```
+Siga a sequência de comandos abaixo para realizar os testes:
 
-Agora, instale as dependências do projeto:
+Observação: É necessário um arquivo '.env' nos diretórios './publisher' e './subscribe' com as seguintes variáveis de ambiente:
+- BROKER_ADDR=<ENDEREÇO DO SEU BROKER>
+- HIVE_USER=<USUÁRIO DO SEU BROKER>
+- HIVE_PSWD=<SENHA DO SEU BROKER>
+
+**Testando o publisher**
+
+1. Entre no diretório usando o comando:
 ```
-pip install -r requirements.txt 
+   cmd cd Sensor_simulation\Ponderada_2\publisher
 ```
 
-Com as dependências instaladas basta rodar o projeto com o comando abaixo:
+2. Rode o comando de teste:
 ```
-python MQTT_Publisher.py
+cmd go test
 ```
 
- ## Funcionamento do módulo 
-Caso todas as etapas acima estejam satisfeitas, o resultado esperado encontra-se neste vídeo de demonstração: [Click Para Ver](https://drive.google.com/drive/folders/1mXoaW-fK-zhebGrNRBtqksd4BWKMuF36?usp=sharing)
+Resulatdo esperado:
+
+
+
+**Testando o subscriber**
+Para realizar este test, é necessário que haja um publicador enviando uma mensagem de teste para o tópico no qual a inscrição está registrada.
+
+1. Entre no diretório usando o comando:
+```
+cmd cd Sensor_simulation\Ponderada_2\subscribe
+```
+
+2. Rode o comando de teste:
+```
+cmd go test
+```
+Video de funcionamento:
+<br>
+
+[link](https://drive.google.com/drive/folders/1SexpJoBAbcSdW7PNzwS3-qXH-RLEknLD?usp=sharing)
