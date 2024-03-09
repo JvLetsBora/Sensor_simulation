@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 	"time"
@@ -24,57 +23,18 @@ var connectLostHandler mqtt.ConnectionLostHandler = func(client mqtt.Client, err
 	fmt.Printf("Connection lost: %v", err)
 }
 
-type Loja struct {
-	Freezer   SensorData `json:"Freezer"`
-	Geladeira SensorData `json:"Geladeira"`
-}
-
-type SensorData struct {
-	SensorId    string `json:"sensor_id"`
-	Timestamp   int64  `json:"timestamp"`
-	Tipo        string `json:"Tipo"`
-	Temperatura int    `json:"Temperatura"`
-	Limite      int
-	min         int
-	max         int
-}
-
 func mqttStart(teste Teste) {
 
 	messagePubHandler := func(client mqtt.Client, msg mqtt.Message) {
 		if msg.Payload() != nil {
 			*teste.textoTeste = string(msg.Payload())
-
 		}
 
-		// Decodificar a carga útil JSON em uma estrutura de dados Go
-		var message Loja
-		err := json.Unmarshal(msg.Payload(), &message)
-		if err != nil {
-			fmt.Println("Erro ao decodificar a carga útil JSON:", err)
-			return
-		}
-
-		if message.Freezer.Temperatura >= -15 {
-			fmt.Println("[ALERTA: Temperatura Alta]")
-		} else if message.Freezer.Temperatura <= -25 {
-			fmt.Println("[ALERTA: Temperatura BAIXA]")
-		} else {
-			fmt.Printf("L %s | %s: Temperatura: %d  \n", message.Freezer.SensorId, message.Freezer.Tipo, message.Freezer.Temperatura)
-		}
-
-		if message.Geladeira.Temperatura >= 10 {
-			fmt.Println("[ALERTA: Temperatura Alta]")
-		} else if message.Geladeira.Temperatura <= 2 {
-			fmt.Println("[ALERTA: Temperatura BAIXA]")
-		} else {
-			fmt.Printf("L %s | %s: Temperatura: %d  \n", message.Geladeira.SensorId, message.Geladeira.Tipo, message.Geladeira.Temperatura)
-		}
-
+		fmt.Println("Teste de menssageria: ", string(msg.Payload()))
 	}
 	err := godotenv.Load(".env")
 	if err != nil {
-
+		fmt.Printf("Error loading .env file: %s", err)
 	}
 
 	var broker = os.Getenv("BROKER_ADDR")
@@ -108,10 +68,10 @@ func mqttStart(teste Teste) {
 
 }
 
-func main() {
-	var x string = "10"
-	ponteiro := &x
-	*ponteiro = "20"
-	teste := Teste{emTeste: true, testeDuracao: 50, textoTeste: ponteiro}
-	mqttStart(teste)
-}
+// func main() {
+// 	var x string = "10"
+// 	ponteiro := &x
+// 	*ponteiro = "20"
+// 	teste := Teste{emTeste: true, testeDuracao: 5, textoTeste: ponteiro}
+// 	mqttStart(teste)
+// }
