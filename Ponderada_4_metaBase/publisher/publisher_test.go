@@ -5,7 +5,7 @@ import (
 )
 
 func TestMainConnected(t *testing.T) {
-	//time.Sleep(2 * time.Second)
-	teste := Teste{testeDuracao: 3}
-	publiStart(teste)
+	test := Teste{tested: true, sec: 3}
+	s := NewSensor("sensor", -100, 100)
+	s.On(test)
 }

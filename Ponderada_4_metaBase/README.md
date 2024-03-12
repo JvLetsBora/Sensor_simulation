@@ -36,22 +36,4 @@ Observação: É necessário um arquivo '.env' nos diretórios './publisher' e '
 cmd go test
 ```
 
-Resulatdo esperado:
-
-
-
-**Testando o subscriber**
-Para realizar este test, é necessário que haja um publicador enviando uma mensagem de teste para o tópico no qual a inscrição está registrada.
-
-1. Entre no diretório usando o comando:
-```
-cmd cd Sensor_simulation\Ponderada_2\subscribe
-```
-
-2. Rode o comando de teste:
-```
-cmd go test
-```
-Resultado esperado:
-<br>
-![img alt](/Ponderada_2/static/subPrint.png)
+Executando os comandos acima, o resultado esperado deve ser semelhante ao que está demonstrado neste vídeo:[Link](https://drive.google.com/file/d/1QueFLvk9FpLdzFm7fInNkbERy7pIfkiU/view?usp=sharing)

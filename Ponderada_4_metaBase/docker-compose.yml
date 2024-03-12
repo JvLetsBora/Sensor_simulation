@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+
+  metabese:
+    image: metabase/metabase:latest
+    restart: always
+    volumes:
+      - ./metabase-data:/metabase.db
+    ports:
+      - 3000:3000
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: senha
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    container_name: banco-db
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
