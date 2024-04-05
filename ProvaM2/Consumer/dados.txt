@@ -1,0 +1,1 @@
+20{"sensor_id":"0","timestamp":1712326646,"nivel":26,"tipoPoluente":"PM2.5"}{"sensor_id":"0","timestamp":1712326649,"nivel":24,"tipoPoluente":"PM2.5"}{"sensor_id":"0","timestamp":1712326651,"nivel":23,"tipoPoluente":"PM2.5"}{"sensor_id":"0","timestamp":1712326653,"nivel":37,"tipoPoluente":"PM2.5"}

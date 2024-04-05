@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"time"
@@ -19,7 +20,14 @@ var connectLostHandler mqtt.ConnectionLostHandler = func(client mqtt.Client, err
 
 type Teste struct {
 	TesteDuracao int
-	Msg          string
+	Msg          Msg
+}
+
+type Msg struct {
+	SensorId     string `json:"sensor_id"`
+	Timestamp    int64  `json:"timestamp"`
+	Nivel        int    `json:"nivel"`
+	TipoPoluente string `json:"tipoPoluente"`
 }
 
 func publiStart(teste Teste) {
@@ -45,7 +53,8 @@ func publiStart(teste Teste) {
 	}
 
 	text := teste.Msg //time.Now().Format(time.RFC3339)
-	token := client.Publish("qualidadeAr", 1, false, text)
+	jsonData, _ := json.Marshal(text)
+	token := client.Publish("qualidadeAr", 1, false, jsonData)
 	token.Wait()
 	fmt.Println("Publicado:", text)
 

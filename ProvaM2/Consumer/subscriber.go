@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"time"
 
@@ -27,7 +28,16 @@ func mqttStart(teste Teste) {
 
 	messagePubHandler := func(client mqtt.Client, msg mqtt.Message) {
 		if msg.Payload() != nil {
-			*teste.textoTeste = string(msg.Payload())
+			*teste.textoTeste += string(msg.Payload())
+			nomeArquivo := "dados.txt"
+
+			// Escrevendo a string no arquivo
+			err := ioutil.WriteFile(nomeArquivo, []byte(*teste.textoTeste), 0644)
+			if err != nil {
+				fmt.Println("Erro ao escrever no arquivo:", err)
+				return
+			}
+
 		}
 
 		fmt.Println("Teste de menssageria: ", string(msg.Payload()))
@@ -53,7 +63,7 @@ func mqttStart(teste Teste) {
 		panic(token.Error())
 	}
 
-	if token := client.Subscribe("qualidadeAr", 1, nil); token.Wait() && token.Error() != nil {
+	if token := client.Subscribe("kafika", 1, nil); token.Wait() && token.Error() != nil {
 		fmt.Println(token.Error())
 		return
 	}
