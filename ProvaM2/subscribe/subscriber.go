@@ -53,7 +53,7 @@ func mqttStart(teste Teste) {
 		panic(token.Error())
 	}
 
-	if token := client.Subscribe("test/topic", 1, nil); token.Wait() && token.Error() != nil {
+	if token := client.Subscribe("qualidadeAr", 1, nil); token.Wait() && token.Error() != nil {
 		fmt.Println(token.Error())
 		return
 	}
@@ -68,10 +68,10 @@ func mqttStart(teste Teste) {
 
 }
 
-// func main() {
-// 	var x string = "10"
-// 	ponteiro := &x
-// 	*ponteiro = "20"
-// 	teste := Teste{emTeste: true, testeDuracao: 5, textoTeste: ponteiro}
-// 	mqttStart(teste)
-// }
+func main() {
+	var x string = "10"
+	ponteiro := &x
+	*ponteiro = "20"
+	teste := Teste{emTeste: true, testeDuracao: 50, textoTeste: ponteiro}
+	mqttStart(teste)
+}

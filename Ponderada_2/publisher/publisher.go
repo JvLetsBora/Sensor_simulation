@@ -18,7 +18,8 @@ var connectLostHandler mqtt.ConnectionLostHandler = func(client mqtt.Client, err
 }
 
 type Teste struct {
-	testeDuracao int
+	TesteDuracao int
+	Msg          string
 }
 
 func publiStart(teste Teste) {
@@ -43,13 +44,13 @@ func publiStart(teste Teste) {
 		panic(token.Error())
 	}
 
-	text := "MSG Teste" //time.Now().Format(time.RFC3339)
-	token := client.Publish("test/topic", 1, false, text)
+	text := teste.Msg //time.Now().Format(time.RFC3339)
+	token := client.Publish("qualidadeAr", 1, false, text)
 	token.Wait()
 	fmt.Println("Publicado:", text)
-	time.Sleep(2 * time.Second)
+
 	select {
-	case <-time.After(time.Second * time.Duration(teste.testeDuracao)):
+	case <-time.After(time.Second * time.Duration(teste.TesteDuracao)):
 		fmt.Println("Cliente desconectado.")
 		client.Disconnect(250)
 
